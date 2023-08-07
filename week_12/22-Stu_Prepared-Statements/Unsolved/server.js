@@ -14,9 +14,9 @@ const db = mysql.createConnection(
   {
     host: 'localhost',
     // MySQL username,
-    user: 'root',
+    user: 'arevalo',
     // TODO: Add MySQL password
-    password: '',
+    password: 'art1234',
     database: 'books_db'
   },
   console.log(`Connected to the books_db database.`)
@@ -26,16 +26,17 @@ const db = mysql.createConnection(
 
 let deletedRow = 2;
 
-db.query(`DELETE FROM favorite_books WHERE id = ?` (err, result) => {
+db.query(`DELETE FROM favorite_books WHERE id = ?`, deletedRow,(err , results) => {
   if (err) {
     console.log(err);
   }
-  console.log(result);
-});
-
+  console.log(results);
+}); 
 // Query database
+
 db.query('SELECT * FROM favorite_books', function (err, results) {
   console.log(results);
+  
 });
 
 // Default response for any other request (Not Found)
