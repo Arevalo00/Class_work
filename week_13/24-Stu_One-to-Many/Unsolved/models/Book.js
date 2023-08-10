@@ -1,51 +1,48 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class User extends Model {}
+class Book extends Model {}
 
-// TODO: Add validations to the User model
-
-User.init(
+Book.init(
   {
     id: {
-      
       type: DataTypes.INTEGER,
-      allowNull: false, // constraint sql statemt
+      allowNull: false,
       primaryKey: true,
       autoIncrement: true,
     },
-    username: {
+    title: {
       type: DataTypes.STRING,
       allowNull: false,
-      validate: {
-        isAlphanumeric:true, // validater 
-      },
-    
     },
-    email: {
+    author: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true,
-      validate: {
-        isEmail: true,
-      },
     },
-    password: {
+    isbn: {
       type: DataTypes.STRING,
       allowNull: false,
-      validate: {
-        len:[8]
-      },
-    
+    },
+    pages: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    edition: {
+      type: DataTypes.INTEGER,
+      defaultValue: 1
+    },
+    is_paperback: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: true
+    },
   },
-},
-{
+  {
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'user',
+    modelName: 'book'
   }
 );
 
-module.exports = User;
+module.exports = Book;
