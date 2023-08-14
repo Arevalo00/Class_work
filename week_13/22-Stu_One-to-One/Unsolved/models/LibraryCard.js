@@ -18,10 +18,10 @@ LibraryCard.init(
     },
     // TODO: Add a comment describing what this column holds information for 
     reader_id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.INTEGER, // going back to reader module 
       references: {
         // TODO: Add a comment describing where `reader` comes from
-        model: 'reader',
+        model: 'reader', 
         key: 'id',
       },
     },
