@@ -17,6 +17,10 @@ router.get('/', async (req, res) => {
       gallery.get({ plain: true })
     );
     // TODO: Send over the 'loggedIn' session variable to the 'homepage' template
+
+
+
+
     res.render('homepage', {
       galleries,
     });
@@ -47,6 +51,10 @@ router.get('/gallery/:id', async (req, res) => {
 
     const gallery = dbGalleryData.get({ plain: true });
     // TODO: Send over the 'loggedIn' session variable to the 'gallery' template
+
+
+
+
     res.render('gallery', { gallery });
   } catch (err) {
     console.log(err);
@@ -61,6 +69,9 @@ router.get('/painting/:id', async (req, res) => {
 
     const painting = dbPaintingData.get({ plain: true });
     // TODO: Send over the 'loggedIn' session variable to the 'homepage' template
+
+
+    
     res.render('painting', { painting });
   } catch (err) {
     console.log(err);
